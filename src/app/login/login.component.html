@@ -1,0 +1,33 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="60px" fxLayoutGap.xs="0">
+    <!-- <div class="item item-1" fxFlex="80%" fxFlexOrder="1" fxLayout="column" fxLayoutGap="10px">
+        <mat-card>
+        </mat-card>
+    </div> -->
+    <div  fxLayoutAlign="center center" fxFlexOrder="2" fxLayout="column" fxLayoutGap="10px">
+        <mat-card>
+            <!-- <img mat-card-image class="login-logo" src="/assets/img/wagner-logo.jpg"> -->
+            <mat-toolbar>
+                <span>LOGIN</span>
+            </mat-toolbar>
+            <mat-card-content class="center">
+                <form (ngSubmit)="submit(loginForm.value)" [formGroup]="loginForm">
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row center">
+                        <button mat-raised-button type="submit" color="primary">Login</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
