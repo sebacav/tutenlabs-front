@@ -1,1 +1,31 @@
-<p>booking works!</p>
+<div fxLayout="column"  fxLayoutGap="10px" fxFlex="25%"></div>
+
+<div fxLayout="column"  fxLayoutGap="10px" fxFlex="50%">
+    <div fxLayout="row" fxLayoutGap="10px" >
+        <mat-card fxFlex="33%" >Simple card</mat-card>
+        <mat-card fxFlex="33%" >Simple card</mat-card>
+        <mat-card fxFlex="33%" >Simple card</mat-card>
+    </div>
+
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-card *ngFor="let booking of bookings; index as i; first as isFirst" >
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <p>ID: {{booking.bookingId}}</p>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <p>Name: {{booking.firstName}}</p>
+                    <p>Last Name: {{booking.lastName}}</p>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <p>Time: {{booking.bookingTime}}</p>
+                    <p>Price: {{booking.bookingPrice}}</p>
+                </div>
+
+        </mat-card>
+    </div>
+
+    
+
+</div>

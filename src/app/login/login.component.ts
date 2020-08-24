@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from '../models/user'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -18,8 +20,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public submit(model: User) {
-    
+  public submit(user: User) {
+    console.log(user.email, user.password)
+    this.router.navigate(['booking']);
+    console.log("despues")
   }
 
 }
