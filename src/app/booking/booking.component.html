@@ -1,11 +1,42 @@
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="25%"></div>
 
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="50%">
+
+    <!-- Primer Elemento de la Columna -->
+
     <div fxLayout="row" fxLayoutGap="10px" >
-        <mat-card fxFlex="33%" >Simple card</mat-card>
-        <mat-card fxFlex="33%" >Simple card</mat-card>
-        <mat-card fxFlex="33%" >Simple card</mat-card>
+        <mat-card fxFlex="30%" >
+            <mat-form-field  fxFlex="90%">
+                <mat-label>Filtro</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let cFiltro of campoDeFiltro" [value]="cFiltro.valor">
+                    {{cFiltro.valor}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </mat-card>
+
+        <mat-card fxFlex="15%" >
+            <mat-form-field  fxFlex="90%">
+                <mat-label>Filtro</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let tFiltro of tipoDeFiltro" [value]="tFiltro.valor">
+                        {{tFiltro.valor}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card fxFlex="35%" >
+            <mat-form-field class="example-full-width">
+                <mat-label>Favorite food</mat-label>
+                <input matInput placeholder="Ex. Pizza" type="number">
+            </mat-form-field>
+        </mat-card>
     </div>
+
+
+<!-- Tercer elemento de la columna -->
 
     <div fxLayout="column" fxLayoutGap="10px">
         <mat-card *ngFor="let booking of bookings; index as i; first as isFirst" >
@@ -19,7 +50,7 @@
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="10px">
-                    <p>Time: {{booking.bookingTime}}</p>
+                    <p>Time: {{booking.bookingTime | date : 'yyyy/MM/dd'}}</p>
                     <p>Price: {{booking.bookingPrice}}</p>
                 </div>
 

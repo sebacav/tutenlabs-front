@@ -43,6 +43,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { LoginComponent } from './login/login.component';
 import { BookingComponent } from './booking/booking.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BookingComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
