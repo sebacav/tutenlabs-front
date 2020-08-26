@@ -21,6 +21,20 @@ docker run -p 5555:80 tuten-lab
 ```
 Con esto, podremos ir a nuestro navegador, y abrir la direccion [localhost](https://localhost:5555/) y podremos navegar sobre la aplicacion.
 
+## Uso de la Aplicacion
+
+Para poder hacer inicio de sesion, solo basta con ir a la ruta de la aplicacion: [tuten-front.gcp.com](https://tuten-labs-smdxjsf3dq-uc.a.run.app/)
+
+Si ya estas logueado, puedes dirigirte a ver los filtros de bookings : [tuten-front.gcp.com/booking](https://tuten-labs-smdxjsf3dq-uc.a.run.app/booking)
+
+
+# Supuestos de la aplicacion
+
+* Los campos `bookingId ` y `bookingPrice `, ambos son filtros, los cuales se eligen en un selector
+* Dependiendo de los campos de filtro seleccionados, es posible filtrar basado en los operadores `<=`, `=` y `>=`
+* Si no es posible filtrar, entonces se deben mantener los campos mostrados.
+
+
 
 
 
