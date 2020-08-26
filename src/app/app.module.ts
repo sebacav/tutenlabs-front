@@ -44,13 +44,15 @@ import { LoginComponent } from './login/login.component';
 import { BookingComponent } from './booking/booking.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OperadoresPipe } from './pipes/operadores.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BookingComponent
+    BookingComponent,
+    OperadoresPipe
   ],
   imports: [
     HttpClientModule,

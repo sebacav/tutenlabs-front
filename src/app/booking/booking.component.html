@@ -1,62 +1,86 @@
+<!-- Se crea un espacio al lado izquierdo de 25% -->
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="25%"></div>
 
+<!-- Se fabrica el espacio donde trabajremos de un 50% -->
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="50%">
 
-    <!-- Primer Elemento de la Columna -->
+<!-- Primer Elemento de la Columna -->
+    <!-- Se construye un formulario, donde estara la accion de submit -->
+    <form [formGroup]="formFilter" (ngSubmit)="filtro(formFilter.value)">
+        <!-- Se crea un espacio en donde alinearemos horizontalmente los elementos -->
+        <div fxLayout="row" fxLayoutGap="10px" >
 
-    <div fxLayout="row" fxLayoutGap="10px" >
-        <mat-card fxFlex="30%" >
-            <mat-form-field  fxFlex="90%">
-                <mat-label>Filtro</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let cFiltro of campoDeFiltro" [value]="cFiltro.valor">
-                    {{cFiltro.valor}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-        </mat-card>
-
-        <mat-card fxFlex="15%" >
-            <mat-form-field  fxFlex="90%">
-                <mat-label>Filtro</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let tFiltro of tipoDeFiltro" [value]="tFiltro.valor">
-                        {{tFiltro.valor}}
+            <!-- Se crea el primer elemento de 30% del espacio (50% definido arriba) -->
+            <mat-card fxFlex="30%" >
+                <!-- El elemento selector tendra maximo 90% del espacio de la carta -->
+                <mat-form-field  fxFlex="90%">
+                    <mat-label>Campo</mat-label>
+                    <!-- Llamaremos variable a lo entregado por el selector de tipo de variable a filtrar -->
+                    <mat-select formControlName="variable">
+                    <mat-option *ngFor="let variable of variables" [value]="variable.originName">
+                        {{variable.valor}}
                     </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </mat-card>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card>
 
-        <mat-card fxFlex="35%" >
-            <mat-form-field class="example-full-width">
-                <mat-label>Favorite food</mat-label>
-                <input matInput placeholder="Ex. Pizza" type="number">
-            </mat-form-field>
-        </mat-card>
-    </div>
+            <!-- Se crea el primer elemento de 15% del espacio (50% definido arriba) -->
+            <mat-card fxFlex="15%" >
+                <!-- El elemento selector tendra maximo 90% del espacio de la carta -->
+                <mat-form-field  fxFlex="90%" >
+                    <mat-label>Filtro</mat-label>
+                    <!-- Llamaremos operador a lo entregado por el selector de operadores de nuestro filtro -->
+                    <mat-select formControlName="operador">
+                        <mat-option *ngFor="let operador of operadores" [value]="operador.valor">
+                            {{operador.valor}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card>
 
+            <!-- Se crea el primer elemento de 20% del espacio (50% definido arriba) -->
+            <mat-card fxFlex="20%" >
+                <!-- El elemento selector tendra maximo 80% del espacio de la carta -->
+                <mat-form-field class="example-full-width" fxFlex="80%">
+                    <mat-label>Valor</mat-label>
+                    <!-- Llamaremos cantidad a lo entregado por el selector de cantidades de nuestro filtro -->
+                    <input matInput placeholder="numero" type="number" formControlName="cantidad">
+                </mat-form-field>
+            </mat-card>
 
-<!-- Tercer elemento de la columna -->
+            <!-- Creamos nuestro boton de submit, para filtrar -->
+            <mat-card fxFlex="35%" >
+                <button mat-raised-button fxFlex="90%" color="primary" type="submit">Filtrar</button>
+            </mat-card>
 
+        </div>
+
+    </form>
+
+    <!-- Segundo elemento de la columna -->
     <div fxLayout="column" fxLayoutGap="10px">
-        <mat-card *ngFor="let booking of bookings; index as i; first as isFirst" >
+        <!-- Desplegaremos el arreglo Bookings, en forma de cartas -->
+        <mat-card *ngFor="let booking of bookingsTable " >
 
+                <!-- Primera linea horizontal -->
                 <div fxLayout="row" fxLayoutGap="10px">
+                    <!-- Desplegamos el bookingId -->
                     <p>ID: {{booking.bookingId}}</p>
                 </div>
+                <!-- Segunda linea horizontal -->
                 <div fxLayout="row" fxLayoutGap="10px">
+                    <!-- Desplegamos el firstName y lastName -->
                     <p>Name: {{booking.firstName}}</p>
                     <p>Last Name: {{booking.lastName}}</p>
                 </div>
-
+                <!-- Tercer linea horizontal -->
                 <div fxLayout="row" fxLayoutGap="10px">
+                    <!-- Desplegamos el bookingTime (con un pipe de filtro en formato año/mes/dia) y el bookingPrice -->
                     <p>Time: {{booking.bookingTime | date : 'yyyy/MM/dd'}}</p>
                     <p>Price: {{booking.bookingPrice}}</p>
                 </div>
 
         </mat-card>
     </div>
-
-    
 
 </div>

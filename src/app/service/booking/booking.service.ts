@@ -27,6 +27,7 @@ export class BookingService {
     return this.http.get(this.uri + '/user/contacto@tuten.cl/bookings', { headers: headers, params: params })
         .pipe(
             map(result => {
+                console.log(result)
                 return result;
             },
             )
