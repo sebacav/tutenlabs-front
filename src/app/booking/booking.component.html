@@ -1,11 +1,11 @@
 <!-- Se crea un espacio al lado izquierdo de 25% -->
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="25%"></div>
 
-<!-- Se fabrica el espacio donde trabajremos de un 50% -->
+<!-- Se fabrica el espacio donde trabajaremos  de un 50% -->
 <div fxLayout="column"  fxLayoutGap="10px" fxFlex="50%">
 
 <!-- Primer Elemento de la Columna -->
-    <!-- Se construye un formulario, donde estara la accion de submit -->
+    <!-- Se construye un formulario, donde estará la acción de submit -->
     <form [formGroup]="formFilter" (ngSubmit)="filtro(formFilter.value)">
         <!-- Se crea un espacio en donde alinearemos horizontalmente los elementos -->
         <div fxLayout="row" fxLayoutGap="10px" >
@@ -16,9 +16,9 @@
                 <mat-form-field  fxFlex="90%">
                     <mat-label>Campo</mat-label>
                     <!-- Llamaremos variable a lo entregado por el selector de tipo de variable a filtrar -->
-                    <mat-select formControlName="variable">
-                    <mat-option *ngFor="let variable of variables" [value]="variable.originName">
-                        {{variable.valor}}
+                    <mat-select formControlName="tipoDato">
+                    <mat-option *ngFor="let tipoDato of tiposDatos" [value]="tipoDato.originName">
+                        {{tipoDato.valor}}
                     </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -48,7 +48,7 @@
                 </mat-form-field>
             </mat-card>
 
-            <!-- Creamos nuestro boton de submit, para filtrar -->
+            <!-- Creamos nuestro botón de submit, para filtrar -->
             <mat-card fxFlex="35%" >
                 <button mat-raised-button fxFlex="90%" color="primary" type="submit">Filtrar</button>
             </mat-card>
@@ -62,7 +62,7 @@
         <!-- Desplegaremos el arreglo Bookings, en forma de cartas -->
         <mat-card *ngFor="let booking of bookingsTable " >
 
-                <!-- Primera linea horizontal -->
+                <!-- Primera línea horizontal -->
                 <div fxLayout="row" fxLayoutGap="10px">
                     <!-- Desplegamos el bookingId -->
                     <p>ID: {{booking.bookingId}}</p>
@@ -73,7 +73,7 @@
                     <p>Name: {{booking.firstName}}</p>
                     <p>Last Name: {{booking.lastName}}</p>
                 </div>
-                <!-- Tercer linea horizontal -->
+                <!-- Tercer línea horizontal -->
                 <div fxLayout="row" fxLayoutGap="10px">
                     <!-- Desplegamos el bookingTime (con un pipe de filtro en formato año/mes/dia) y el bookingPrice -->
                     <p>Time: {{booking.bookingTime | date : 'yyyy/MM/dd'}}</p>

@@ -8,12 +8,15 @@ import { map } from 'rxjs/operators';
 })
 export class BookingService {
 
+  // URI base de la API
   uri = "https://dev.tuten.cl/TutenREST/rest";
 
   constructor(private http: HttpClient) { }
 
+  // bookings es un método que retorna todos los bookings de la API
   bookings(): Observable<Object> {
 
+    // Se generan los Headers necesarios
     let headers = new HttpHeaders({
       'app': 'APP_BCK',
       'Accept': 'application/json',
@@ -21,9 +24,10 @@ export class BookingService {
       'token': sessionStorage.getItem('access_token')
     });
 
+    // Se agrega un campo params de tipo get
     let params = new HttpParams().append('current','true');
 
-    // return this.http.get(this.uri + '/user/'+sessionStorage.getItem('email')+'/bookings', { headers: headers, params: params })
+    // Se hace una llamada al servicio de la API, agregando headers y params
     return this.http.get(this.uri + '/user/contacto@tuten.cl/bookings', { headers: headers, params: params })
         .pipe(
             map(result => {
