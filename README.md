@@ -7,7 +7,7 @@ Este proyecto fue creado, para ser desplegado en Cloud Run, mediante CI/CD desde
 ## Requisitos
 Para instalar el proyecto localmente, se requiere tener instalado los siguientes componentes:
 * Debes tener instalado `Node 14.5.0 ` o superior 
-* Base de datos `Angular 10 ` o superior 
+* `Angular 10 ` o superior 
 * `Docker `, para poder correr el contendor.
 
 ## Instalacion
